@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<!-- Compiled and minified CSS -->
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    	<!-- Compiled and minified JavaScript -->
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    	<script src="script.js"></script>
+	</head>
+	<body>
+		<form id="random">
+		    <p>
+		      <label>
+		        <input name="group1" type="radio" id="ker" checked/>
+		        <span>Kerosine</span>
+		      </label>
+		    </p>
+		    <p>
+		      <label>
+		        <input name="group1" type="radio" id="alc" />
+		        <span>Alcohol</span>
+		      </label>
+		    </p>
+		    <p>
+		      <label>
+		        <input class="with-gap" name="group1" type="radio" id="hyd" />
+		        <span>Hydrazine</span>
+		      </label>
+		    </p>
+		    <p>
+		      <label>
+		        <input class="with-gap" name="group1" type="radio" id="liq" />
+		        <span>Liquid Hydrogen</span>
+		      </label>
+		    </p>
+  		</form>
+
+  		<form id="random2">
+		    <p>
+		      <label>
+		        <input type="checkbox" />
+		        <span>Red</span>
+		      </label>
+		    </p>
+		    <p>
+		      <label>
+		        <input type="checkbox" checked="checked" />
+		        <span>Yellow</span>
+		      </label>
+		    </p>
+		    <p>
+		      <label>
+		        <input type="checkbox" class="filled-in" checked="checked" />
+		        <span>Filled in</span>
+		      </label>
+		    </p>
+		    <p>
+		      <label>
+		        <input id="indeterminate-checkbox" type="checkbox" />
+		        <span>Indeterminate Style</span>
+		      </label>
+		    </p>
+		    <p>
+		      <label>
+		        <input type="checkbox" checked="checked" disabled="disabled" />
+		        <span>Green</span>
+		      </label>
+		    </p>
+		    <p>
+		      <label>
+		        <input type="checkbox" disabled="disabled" />
+		        <span>Brown</span>
+		      </label>
+		    </p>
+	  	</form>
+
+	  	<form>	
+		      <input type="range" name="rangeInput" min="15" max="40" onchange="updateTextInput(this.value);">
+			  <input type="text" id="textInput" value="">
+			  	    <script type="text/javascript">
+        function updateTextInput(val) {
+          document.getElementById('textInput').value=val; 
+        }
+    </script>
+	  	</form>
+	</body>
+</html>
