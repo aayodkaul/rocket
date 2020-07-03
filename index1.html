@@ -63,20 +63,20 @@
 			<p style="font-size:30px">Rocket Type</p>
 		    <p>
 		      <label>
-		        <input name="group1" type="radio" id="ker" checked/>
-		        <span>Apollo (1 Million Newtons)</span>
+		        <input name="group1" type="radio" id="apo" checked/>
+		        <span>Apollo (10 Million Newtons)</span>
 		      </label>
 		    </p>
 		    <p>
 		      <label>
-		        <input name="group1" type="radio" id="alc" />
-		        <span>Orion (2 Million Newtons)</span>
+		        <input name="group1" type="radio" id="ori" />
+		        <span>Orion (20 Million Newtons)</span>
 		      </label>
 		    </p>
 		    <p>
 		      <label>
-		        <input class="with-gap" name="group1" type="radio" id="hyd" />
-		        <span>Falcon (3 Million Netwons)</span>
+		        <input class="with-gap" name="group1" type="radio" id="fal" />
+		        <span>Falcon (30 Million Netwons)</span>
 		      </label>
 		    </p>
   		</form>
@@ -103,16 +103,33 @@
    					</script>
 	  	</form>
 
-	  	<form>
-	  		<p style="font-size:30px">Lift Force (in millions of Newtons)</p>
-		      <input type="range" name="rangeInput" min="1" max="15" onchange="updateTextInput(this.value);">
-			  <input type="text" id="textInput" value="">
-			  	    <script type="text/javascript">
-        				function updateTextInput(val) {
-          				document.getElementById('textInput').value=val; 
-        				}
-   					</script>
-	  	</form>
+	  	<form id="random">
+			<p style="font-size:30px">Thrust Time (in seconds)</p>
+		    <p>
+		      <label>
+		        <input name="group1" type="radio" id="60" checked/>
+		        <span>60</span>
+		      </label>
+		    </p>
+		    <p>
+		      <label>
+		        <input name="group1" type="radio" id="90" />
+		        <span>90</span>
+		      </label>
+		    </p>
+		    <p>
+		      <label>
+		        <input class="with-gap" name="group1" type="radio" id="120" />
+		        <span>120</span>
+		      </label>
+		    </p>
+		    <p>
+		      <label>
+		        <input class="with-gap" name="group1" type="radio" id="150" />
+		        <span>150</span>
+		      </label>
+		    </p>
+  		</form>
 
 	  	<button type="button" onclick="startrocket()">Launch!</button>
 	</body>
