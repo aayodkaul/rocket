@@ -5,13 +5,13 @@ body {
 	position: absolute;
 	bottom: 0px;
 	left: 35%;
-	animation: fly 3s .5s ease-in;
+	/*animation: fly 3s .5s ease-in;*/
 }
-@keyframes fly{
+/*@keyframes fly{
 	0% {
 		bottom: 0px;
 	}
 	100% {
 		bottom: 100%;
 	}
-}
+}*/

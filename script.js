@@ -27,5 +27,34 @@ function startrocket() {
 	} else {
 		$("#content").append('<img class="rocket launch" src="https://ideascdn.lego.com/media/generate/lego_ci/a118f882-78d5-4542-973b-237c5531cb8b/resize:800:450">')
 	}
-	}
+	console.log($(".rocket"));
+	customizethrust(thrusttime);
+}
 	//$("#content").
+function customizethrust(seconds){
+	var supportedFlag = $.keyframe.isSupported();
+	var thrust=parseInt(seconds)/15;
+	var durationtime=thrust.toString()+'s'
+	console.log(durationtime);
+	console.log(thrust);
+	console.log(supportedFlag);
+	$.keyframe.define([{
+		name: 'fly', 
+		'0%': {
+			'bottom': '0px'
+		},
+		'100%': {
+			'bottom': '100%'
+		}
+	}]);
+	$(".rocket").playKeyframe({
+		name: 'fly',
+		duration: durationtime,
+		timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
+	    delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
+	    iterationCount: 'infinite', //[optional, default:1]  how many times you want the animation to repeat
+	    direction: 'normal', //[optional, default: 'normal']  which direction you want the frames to flow
+	    fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
+	    complete: function(){console.log('here')} //[optional] Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
+	});
+}
