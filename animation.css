@@ -1,12 +1,11 @@
 body {
-	overflow-y: hidden;
 	background: purple;
 }
 .rocket {
 	position: absolute;
 	bottom: 0px;
 	left: 35%;
-	animation: fly 5s .5s ease-in;
+	animation: fly 3s .5s ease-in;
 }
 @keyframes fly{
 	0% {
