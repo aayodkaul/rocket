@@ -21,16 +21,23 @@ function startrocket() {
 	//$("#content").css("background", "purple");
 	$("#content").css("overflow-y", "hidden");
 	if(rocket=="apo"){
-		$("#content").append('<img class="rocket launch" src="https://i.pinimg.com/originals/da/bd/0b/dabd0b9ee25c58c472343de889fdd472.jpg">');
+		$("#content").append('<img class="rocket launch" src="apollo-removebg-preview.png">');
 	} else if(rocket=="ori") {
-		$("#content").append('<img class="rocket launch" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcShQh4KU-EJI_88u6NF4os4HnAoCc4Abajs2Q&usqp=CAU">');
+		$("#content").append('<img class="rocket launch" src="orion.png">');
 	} else {
-		$("#content").append('<img class="rocket launch" src="https://ideascdn.lego.com/media/generate/lego_ci/a118f882-78d5-4542-973b-237c5531cb8b/resize:800:450">')
+		$("#content").append('<img class="rocket launch" src="falcon.png">')
 	}
 	console.log($(".rocket"));
-	customizethrust(thrusttime);
+	customizethrust(thrusttime); //thrusttime should affect delay feature at bottom
 }
-	//$("#content").
+	$("#content").css();
+	if(engine=="sol"){
+		//thrust is increased, rocket flies farther
+	} else if(engine=="liq"){
+		//no change to thrust, so altitude does not change, but rocket flies faster
+	} else if(engine=="hyb"){
+		//thrust is slightly increased, rocket flies slightly further and slightly faster
+	}
 function customizethrust(seconds){
 	var supportedFlag = $.keyframe.isSupported();
 	var thrust=parseInt(seconds)/15;
