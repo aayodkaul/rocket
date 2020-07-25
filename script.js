@@ -23,28 +23,38 @@ function startrocket() {
 	if(rocket=="apo"){
 		$("#content").append('<img class="rocket launch" src="apollo-removebg-preview.png">');
 	} else if(rocket=="ori") {
-		$("#content").append('<img class="rocket launch" src="orion.png">');
+		$("#content").append('<img class="rocket launch" src="orion.png" style="left: 35%">');
 	} else {
-		$("#content").append('<img class="rocket launch" src="falcon.png">')
+		$("#content").append('<img class="rocket launch" src="falcon.png" style="left: 45%">');
 	}
-	console.log($(".rocket"));
-	customizethrust(thrusttime); //thrusttime should affect delay feature at bottom
+	customizethrust(thrusttime, engine, fuel); //thrusttime should affect delay feature at bottom
 }
-	$("#content").css();
+function customizethrust(seconds, engine){
+	var supportedFlag = $.keyframe.isSupported();
+	var thrust=parseInt(seconds)/15;
+	var durationtime=thrust.toString()+'s';
+	var thrusttime=parseInt(seconds)/30;
+	var delay=thrusttime.toString()+'s';
 	if(engine=="sol"){
 		//thrust is increased, rocket flies farther
 	} else if(engine=="liq"){
+		var newthrust=thrust - 2;
+		durationtime=newthrust.toString()+'s';
 		//no change to thrust, so altitude does not change, but rocket flies faster
 	} else if(engine=="hyb"){
 		//thrust is slightly increased, rocket flies slightly further and slightly faster
 	}
-function customizethrust(seconds){
-	var supportedFlag = $.keyframe.isSupported();
-	var thrust=parseInt(seconds)/15;
-	var durationtime=thrust.toString()+'s'
-	console.log(durationtime);
-	console.log(thrust);
-	console.log(supportedFlag);
+
+	if (fuel=="lhy"){
+		//fastest
+	} else if(fuel=="ker"){
+		//faster
+	} else if(fuel=="hyd"){
+		//fast
+	} else{
+		//slowest
+	}
+	
 	$.keyframe.define([{
 		name: 'fly', 
 		'0%': {
@@ -58,7 +68,7 @@ function customizethrust(seconds){
 		name: 'fly',
 		duration: durationtime,
 		timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
-	    delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
+	    delay: delay, //[optional, default: 0s]  how long you want to wait before the animation starts
 	    iterationCount: 'infinite', //[optional, default:1]  how many times you want the animation to repeat
 	    direction: 'normal', //[optional, default: 'normal']  which direction you want the frames to flow
 	    fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
