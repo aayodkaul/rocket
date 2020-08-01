@@ -28,9 +28,13 @@ function startrocket() {
 		$("#content").append('<img class="rocket launch" src="falcon.png" style="left: 45%">');
 	}
 	var altitude = 0;
+	// h = v^2 / 2 (accel)
 	var velocity = 0;
+	// v = 1/2 * accel * time
 	var time = 0;
+	// time = (thrust - drag) * 4
 	var accel = 0;
+	// accel = (thrust - weight) / mass
 	$("#content").append('<div class="my-legend"><div class="legend-title">Rocket Sim Stats</div><div class="legend-scale"><ul class="legend-labels"><li>velocity</li><li>time</li><li>altitude</li><li>accel</li></ul></div>');
 	customizethrust(thrusttime, engine, fuel, drag, thrust); //thrusttime should affect delay feature at bottom
 }
@@ -72,6 +76,8 @@ function customizethrust(seconds, engine, fuel, drag, th){
 
 	if (drag >= th){
 		alert("ERROR: DRAG SHOULD NOT BE GREATER THAN THRUST");
+		//PROBLEM: sometimes incorrect
+		//try to incorporate rocket malfunction animation on second screen
 	} else{
 		$.keyframe.define([{
 			name: 'fly', 
