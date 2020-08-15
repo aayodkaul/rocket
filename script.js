@@ -11,40 +11,44 @@ function startrocket() {
 	var thrust = $('#textInput').val();
 	var drag = $('#textInput2').val();
 	var thrusttime = $('input[name=group4]:checked').attr('id');
-	console.log(fuel);
-	console.log(engine);
-	console.log(rocket);
-	console.log(thrust);
-	console.log(drag);
-	console.log(thrusttime);
+	drag = parseInt(drag);
+	thrust = parseInt(thrust);
 	$("#content").empty();
 	//$("#content").css("background", "purple");
 	$("#content").css("overflow-y", "hidden");
 	if(rocket=="apo"){
 		$("#content").append('<img class="rocket launch" src="apollo-removebg-preview.png">');
+		var weight=10;
+		var mass=1;
 	} else if(rocket=="ori") {
 		$("#content").append('<img class="rocket launch" src="orion.png" style="left: 35%">');
+		var weight=20;
+		var mass=2;
 	} else {
 		$("#content").append('<img class="rocket launch" src="falcon.png" style="left: 45%">');
+		var weight=30;
+		var mass=3;
 	}
-	var altitude = 0;
-	// h = v^2 / 2 (accel)
-	var velocity = 0;
-	// v = 1/2 * accel * time
-	var time = 0;
+	var time = Math.round(((thrust - drag) * 4)*100) / 100;
 	// time = (thrust - drag) * 4
-	var accel = 0;
+	var accel = Math.round(((thrust - weight) / mass)*100) / 100;
 	// accel = (thrust - weight) / mass
-	$("#content").append('<div class="my-legend"><div class="legend-title">Rocket Sim Stats</div><div class="legend-scale"><ul class="legend-labels"><li>velocity</li><li>time</li><li>altitude</li><li>accel</li></ul></div>');
-	customizethrust(thrusttime, engine, fuel, drag, thrust); //thrusttime should affect delay feature at bottom
+	var velocity = Math.round((1/2 * accel * time)*100) / 100;
+	// v = 1/2 * accel * time
+	var altitude = Math.round((Math.pow(velocity,2) / (2 * accel))*100) / 100;
+	// h = v^2 / (2 * accel)
+	$("#content").append('<div class="my-legend"><div class="legend-title">Rocket Sim Stats</div><div class="legend-scale"><ul class="legend-labels"><li id = "velocity">velocity: ' + velocity + 'm/s' + '</li><li id = "time">time: ' + time + 's' + '</li><li id = "altitude">altitude: ' + altitude + 'm' + '</li><li id = "accel">accel: ' + accel + 'm/s^2' + '</li></ul></div>');
+	customizethrust(thrusttime, engine, fuel, drag, thrust, time); //thrusttime should affect delay feature at bottom
 }
-function customizethrust(seconds, engine, fuel, drag, th){
+function customizethrust(seconds, engine, fuel, drag, th, time){
 	var supportedFlag = $.keyframe.isSupported();
-	var thrust=parseInt(seconds)/10;
+	var thrust=time/10;
 	var durationtime=thrust.toString()+'s';
 	var thrusttime=parseInt(seconds)/30;
 	var delay=thrusttime.toString()+'s';
 	if(engine=="sol"){
+		var newthrust=thrust - 5;
+		durationtime=newthrust.toString()+'s';
 		//thrust is increased, rocket flies farther
 	} else if(engine=="liq"){
 		var newthrust=thrust - 2;
@@ -57,26 +61,27 @@ function customizethrust(seconds, engine, fuel, drag, th){
 	}
 
 	if (fuel=="lhy"){
-		var newthrust2=thrust - 4;
+		var newthrust2=newthrust - 4;
 		durationtime=newthrust2.toString()+'s';
 		//fastest
 	} else if(fuel=="ker"){
-		var newthrust2=thrust - 3;
+		var newthrust2=newthrust - 3;
 		durationtime=newthrust2.toString()+'s';
 		//faster
 	} else if(fuel=="hyd"){
-		var newthrust2=thrust - 2;
+		var newthrust2=newthrust - 2;
 		durationtime=newthrust2.toString()+'s';
 		//fast
 	} else{
-		var newthrust2=thrust - 1;
+		var newthrust2=newthrust - 1;
 		durationtime=newthrust2.toString()+'s';
 		//slowest
 	}
-
+	
+	console.log(drag);
+	console.log(th);
 	if (drag >= th){
 		alert("ERROR: DRAG SHOULD NOT BE GREATER THAN THRUST");
-		//PROBLEM: sometimes incorrect
 		//try to incorporate rocket malfunction animation on second screen
 	} else{
 		$.keyframe.define([{
@@ -99,4 +104,9 @@ function customizethrust(seconds, engine, fuel, drag, th){
 		    complete: function(){console.log('here')} //[optional] Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
 		});
 	}
+	setInterval(function() {
+		durationtime
+    	document.getElementById("velocity").innerHTML = "Item was changed";
+    	//figure out right side of equation, durationtime/# of time steps
+	}, 1000);
 }
