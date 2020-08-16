@@ -38,9 +38,9 @@ function startrocket() {
 	var altitude = Math.round((Math.pow(velocity,2) / (2 * accel))*100) / 100;
 	// h = v^2 / (2 * accel)
 	$("#content").append('<div class="my-legend"><div class="legend-title">Rocket Sim Stats</div><div class="legend-scale"><ul class="legend-labels"><li id = "velocity">Velocity: ' + velocity + 'm/s' + '</li><li id = "time">Time: ' + time + 's' + '</li><li id = "altitude">Altitude: ' + altitude + 'm' + '</li><li id = "accel">Accel: ' + accel + 'm/s^2' + '</li></ul></div>');
-	customizethrust(thrusttime, engine, fuel, drag, thrust, time); //thrusttime should affect delay feature at bottom
+	customizethrust(thrusttime, engine, fuel, drag, thrust, time, velocity, accel); //thrusttime should affect delay feature at bottom
 }
-function customizethrust(seconds, engine, fuel, drag, th, time){
+function customizethrust(seconds, engine, fuel, drag, th, time, velocity, accel){
 	var supportedFlag = $.keyframe.isSupported();
 	var thrust=1400/time;
 	var durationtime=thrust.toString()+'s';
@@ -118,11 +118,19 @@ function customizethrust(seconds, engine, fuel, drag, th, time){
 		    complete: function(){console.log('here')} //[optional] Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
 		});
 	}
-	setInterval(function() {
-		var timestep = 1 / durationtime
-		var currentposition = durationtime
-    	document.getElementById("velocity").innerHTML = timestep / durationtime;
+	var ti = 0;
+	var interval = setInterval(function() {
+		var dtime = parseInt(durationtime.substring(0, durationtime.length -1));
+		var slope = velocity / dtime;
+		var slope2 = accel / dtime;
+		document.getElementById("accel").innerHTML = slope2 * ti;
+    	document.getElementById("velocity").innerHTML = slope * ti;
+    	ti = ti + 0.1;
+    	if (ti >= dtime){
+    		clearInterval(interval);
+    		return;
+    	}
     	//figure out right side of equation, durationtime/# of time steps
     	//add clock?
-	}, 1000);
+	}, 100);
 }
