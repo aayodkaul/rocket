@@ -123,5 +123,6 @@ function customizethrust(seconds, engine, fuel, drag, th, time){
 		var currentposition = durationtime
     	document.getElementById("velocity").innerHTML = timestep / durationtime;
     	//figure out right side of equation, durationtime/# of time steps
+    	//add clock?
 	}, 1000);
 }
