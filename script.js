@@ -11,23 +11,25 @@ function startrocket() {
 	var thrust = $('#textInput').val();
 	var drag = $('#textInput2').val();
 	var thrusttime = $('input[name=group4]:checked').attr('id');
-	drag = parseInt(drag);
+	console.log(fuel);
+	if(drag && thrust && fuel && engine && rocket && thrusttime){
+		drag = parseInt(drag);
 	thrust = parseInt(thrust);
 	$("#content").empty();
 	//$("#content").css("background", "purple");
 	$("#content").css("overflow-y", "hidden");
 	if(rocket=="apo"){
 		$("#content").append('<img class="rocket launch" src="apollo-removebg-preview.png">');
-		var weight=10;
-		var mass=1.5;
+		var weight = 10;
+		var mass = 1.5;
 	} else if(rocket=="ori") {
 		$("#content").append('<img class="rocket launch" src="orion.png" style="left: 35%">');
-		var weight=20;
-		var mass=2;
+		var weight = 20;
+		var mass = 2;
 	} else {
 		$("#content").append('<img class="rocket launch" src="falcon.png" style="left: 45%">');
-		var weight=30;
-		var mass=3;
+		var weight = 30;
+		var mass = 3;
 	}
 	var time = Math.round(((thrust - drag) * 4)*100) / 100;
 	// time = (thrust - drag) * 4
@@ -38,14 +40,15 @@ function startrocket() {
 	var altitude = Math.round((Math.pow(velocity,2) / (2 * accel))*100) / 100;
 	// h = v^2 / (2 * accel)
 	$("#content").append('<div class="my-legend"><div class="legend-title">Rocket Sim Stats</div><div class="legend-scale"><ul class="legend-labels"><li id = "velocity">Velocity: ' + velocity + 'm/s' + '</li><li id = "time">Time: ' + time + 's' + '</li><li id = "altitude">Altitude: ' + altitude + 'm' + '</li><li id = "accel">Accel: ' + accel + 'm/s^2' + '</li></ul></div>');
-	customizethrust(thrusttime, engine, fuel, drag, thrust, time, velocity, accel); //thrusttime should affect delay feature at bottom
+	customizethrust(thrusttime, engine, fuel, drag, thrust, time, velocity, accel, altitude); //thrusttime should affect delay feature at bottom
+		}
 }
-function customizethrust(seconds, engine, fuel, drag, th, time, velocity, accel){
+function customizethrust(seconds, engine, fuel, drag, th, time, velocity, accel, altitude){
 	var supportedFlag = $.keyframe.isSupported();
-	var thrust=1400/time;
-	var durationtime=thrust.toString()+'s';
-	var thrusttime=parseInt(seconds)/30;
-	var delay=thrusttime.toString()+'s';
+	var thrust = 1400 / time;
+	var durationtime = thrust.toString() + 's';
+	var thrusttime = parseInt(seconds) / 30;
+	var delay = thrusttime.toString() + 's';
 	/*if(thrusttime=="60"){
 		var newthrusttime=1.5;
 		var delay = newthrusttime.toString()+'s';
@@ -110,7 +113,7 @@ function customizethrust(seconds, engine, fuel, drag, th, time, velocity, accel)
 		$(".rocket").playKeyframe({
 			name: 'fly',
 			duration: durationtime,
-			timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
+			timingFunction: 'ease-in', // [optional, default: ease] specifies the speed curve of the animation
 		    delay: delay, //[optional, default: 0s]  how long you want to wait before the animation starts
 		    iterationCount: '1', //[optional, default:1]  how many times you want the animation to repeat
 		    direction: 'normal', //[optional, default: 'normal']  which direction you want the frames to flow
@@ -120,17 +123,22 @@ function customizethrust(seconds, engine, fuel, drag, th, time, velocity, accel)
 	}
 	var ti = 0;
 	var interval = setInterval(function() {
-		var dtime = parseInt(durationtime.substring(0, durationtime.length -1));
+		var dtime = parseInt(durationtime.substring(0, durationtime.length - 1));
 		var slope = velocity / dtime;
 		var slope2 = accel / dtime;
-		document.getElementById("accel").innerHTML = slope2 * ti;
-    	document.getElementById("velocity").innerHTML = slope * ti;
-    	ti = ti + 0.1;
+		var slope3 = time / dtime;
+		var slope4 = altitude / dtime;
+    	document.getElementById("velocity").innerHTML = "Velocity: " + Math.round((slope * ti)*10) / 10 + " meters per second";
+    	document.getElementById("accel").innerHTML = "Acceleration: " + Math.round((slope2 * ti)*10) / 10 + " meters per second squared";
+    	document.getElementById("time").innerHTML = "Time Up: " + Math.round((slope3 * ti)*10) / 10 + " seconds";
+    	document.getElementById("altitude").innerHTML = "Altitude: " + Math.round((slope4 * ti)*1) / 1 + " meters";
+    	ti = ti + 0.01;
     	if (ti >= dtime){
     		clearInterval(interval);
     		return;
     	}
     	//figure out right side of equation, durationtime/# of time steps
     	//add clock?
-	}, 100);
+	}, 10);
+	//fontawesome icons, bootsrap, tooltips css, hover, header, nav bar
 }
