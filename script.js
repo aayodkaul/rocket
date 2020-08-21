@@ -14,23 +14,24 @@ function startrocket() {
 	console.log(fuel);
 	if(drag && thrust && fuel && engine && rocket && thrusttime){
 		drag = parseInt(drag);
-	thrust = parseInt(thrust);
-	$("#content").empty();
-	//$("#content").css("background", "purple");
-	$("#content").css("overflow-y", "hidden");
-	if(rocket=="apo"){
-		$("#content").append('<img class="rocket launch" src="apollo-removebg-preview.png">');
-		var weight = 10;
-		var mass = 1.5;
-	} else if(rocket=="ori") {
-		$("#content").append('<img class="rocket launch" src="orion.png" style="left: 35%">');
-		var weight = 20;
-		var mass = 2;
-	} else {
-		$("#content").append('<img class="rocket launch" src="falcon.png" style="left: 45%">');
-		var weight = 30;
-		var mass = 3;
-	}
+		thrust = parseInt(thrust);
+		$("#content").empty();
+		$("#content2").empty();
+		//$("#content").css("background", "purple");
+		$("#content").css("overflow-y", "hidden");
+		if(rocket=="apo"){
+			$("#content").append('<img class="rocket launch" src="apollo-removebg-preview.png">');
+			var weight = 10;
+			var mass = 1.5;
+		} else if(rocket=="ori") {
+			$("#content").append('<img class="rocket launch" src="orion.png" style="left: 35%">');
+			var weight = 20;
+			var mass = 2;
+		} else {
+			$("#content").append('<img class="rocket launch" src="falcon.png" style="left: 45%">');
+			var weight = 30;
+			var mass = 3;
+		}
 	var time = Math.round(((thrust - drag) * 4)*100) / 100;
 	// time = (thrust - drag) * 4
 	var accel = Math.round(((thrust - weight) / mass)*100) / 100;
