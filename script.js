@@ -17,7 +17,8 @@ function startrocket() {
 		thrust = parseInt(thrust);
 		$("#content").empty();
 		$("#content2").empty();
-		$("#content2").empty();
+		$("#content3").empty();
+		$("#content4").empty();
 		//$("#content").css("background", "purple");
 		$("#content").css("overflow-y", "hidden");
 		if(rocket=="apo"){
