@@ -15,15 +15,57 @@
 	<body style="text-align:center;">
 		<div id = "content4" class="topnav">
 			<a class="active" href="#home">Choose Your Data</a>
-			<a href="#fuel">Fuel</a>
-			<a href="#engine">Engine</a>
-			<a href="#design">Design</a>
-			<a href="#thrusttime">Thrust Time</a>
-			<a href="#thrust">Thrust</a>
-			<a href="#drag">Drag</a>
+			<a href="#fuel" onclick="aboutfuel()">Fuel</a>
+			<a href="#engine" onclick="aboutengine()">Engine</a>
+			<a href="#design" onclick="aboutdesign()">Design</a>
+			<a href="#other" onclick="aboutother()">Other factors</a>
 		</div>
 		<h1 id = "content2" style="color: Tomato"; style="font-size: 80px">Rocket Simulation</h1>
 		<h4 id = "content3">Choose one option from each category to build the fastest rocket possible!</h4>
+	</body>
+
+	<body>
+		<h1 id = "fueltitle"></h1>
+		<p id = "aboutft"></p>
+		<h3 id = "kerosinetitle"></h3>
+		<p id = "aboutkerosine"></p>
+		<h3 id = "alctitle"></h3>
+		<p id = "aboutalc"></p>
+		<h3 id = "hydrazinetitle"></h3>
+		<p id = "abouthydrazinetitle"></p>
+		<h3 id = "liqhydtitle"></h3>
+		<p id = "aboutliqhydtitle"></p>
+	</body>
+
+	<body>
+		<h1 id = "enginetitle"></h1>
+		<p id = "aboutchemengine"></p>
+		<h3 id = "solidproptitle"></h3>
+		<p id = "aboutsolidprop"></p>
+		<h3 id = "liqproptitle"></h3>
+		<p id = "aboutliqprop"></p>
+		<h3 id = "hybproptitle"></h3>
+		<p id = "abouthybprop"></p>
+	</body>
+
+	<body>
+		<h1 id = "designtitle"></h1>
+		<p id = "aboutdesign"></p>
+		<h3 id = "apotitle"></h3>
+		<p id = "aboutapo"></p>
+		<h3 id = "orititle"></h3>
+		<p id = "aboutori"></p>
+		<h3 id = "faltitle"></h3>
+		<p id = "aboutfal"></p>
+	</body>
+
+	<body>
+		<h1 id = "tttitle"></h1>
+		<p id = "abouttt"></p>
+		<h1 id = "thrusttitle"></h1>
+		<p id = "aboutthrust"></p>
+		<h1 id = "dragtitle"></h1>
+		<p id = "aboutdrag"></p>
 	</body>
 
 	<body>
@@ -33,7 +75,7 @@
 				<p style="font-size:22px">Fuel Type</p>
 			    <p>
 			      <label>
-			        <input name="group1" type="radio" id="ker"/>
+			        <input name="group1" type="radio" id="ker" />
 			        <span>Kerosine</span>
 			      </label>
 			    </p>
@@ -88,19 +130,19 @@
 			    <p>
 			      <label>
 			        <input name="group3" type="radio" id="apo"/>
-			        <span>Apollo (10 Million Newtons)</span>
+			        <span>Apollo</span>
 			      </label>
 			    </p>
 			    <p>
 			      <label>
 			        <input name="group3" type="radio" id="ori" />
-			        <span>Orion (20 Million Newtons)</span>
+			        <span>Orion</span>
 			      </label>
 			    </p>
 			    <p>
 			      <label>
 			        <input class="with-gap" name="group3" type="radio" id="fal" />
-			        <span>Falcon (30 Million Netwons)</span>
+			        <span>Falcon</span>
 			      </label>
 			    </p>
 	  		</form>
@@ -161,7 +203,7 @@
 	  	</div>
 	</body>
 
-	<body>
+	<body id = "content5">
 		<p>Designed by Aayod Kaul.</p>
 	</body>
 

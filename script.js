@@ -19,6 +19,7 @@ function startrocket() {
 		$("#content2").empty();
 		$("#content3").empty();
 		$("#content4").empty();
+		//$("#content5").empty();
 		//$("#content").css("background", "purple");
 		$("#content").css("overflow-y", "hidden");
 		if(rocket=="apo"){
@@ -144,4 +145,64 @@ function customizethrust(seconds, engine, fuel, drag, th, time, velocity, accel,
     	//add clock?
 	}, 10);
 	//fontawesome icons, bootsrap, tooltips css, hover, header, nav bar
+}
+function aboutfuel() {
+	$("#content").empty();
+	$("#content2").empty();
+	$("#content3").empty();
+	//$("#content5").empty();
+	document.getElementById("fueltitle").innerHTML = "What is Fuel Type?";
+	document.getElementById("aboutft").innerHTML = "Rocket fuel works on the basis of Newton's Third Law of Motion, which states that every action is accompanied by an equal and opposite reaction. By firing fuel out the back of a rocket, the force propels it upwards with acceleration equal to the force at which the fuel is expelled.";
+	document.getElementById("kerosinetitle").innerHTML = "Kerosine";
+	document.getElementById("aboutkerosine").innerHTML = "Kerosine, also known as petroleum, is fuel derived from crude oil and hydrocarbons.   You would not fuel your car with this stuff!  Rocket-grade petroleum is called RP-1 and consists of a highly refined kerosene mixed with liquid oxygen.";
+	document.getElementById("alctitle").innerHTML = "Alcohol";
+	document.getElementById("aboutalc").innerHTML = "Another liquid fuel is alcohol.  Early rockets, such as Germany’s V-2 missile in WWII, used a mix of liquid oxygen and ethyl alcohol, although more efficient fuels were discovered soon after. One of the main advantages of alcohol was its water content which provided cooling in larger rocket engines. However, it does not offer as much power as most rockets need to lift off. It is currently used in the first stages of many orbital launchers.";
+	document.getElementById("hydrazinetitle").innerHTML = "Hydrazine";
+	document.getElementById("abouthydrazinetitle").innerHTML = "Around 100,000 metric tonnes of hydrazine are manufactured worldwide every year. It keeps us warm, clothes and feeds us, can save our lives and even take us to the moon. Today, some military vehicles use hydrazine, but it is employed mostly in extraterrestrial exploration. The Curiosity Rover, which has been resident on Mars since 2012, used hydrazine to land on the red planet. And, in July this year, the NASA New Frontiers mission 'Juno' made its incredible insertion into the orbit of Jupiter powered by hydrazine and dinitrogen tetroxide.";
+	document.getElementById("liqhydtitle").innerHTML = "Liquid Hydrogen";
+	document.getElementById("aboutliqhydtitle").innerHTML = "Despite criticism and early technical failures, the taming of liquid hydrogen proved to be one of NASA's most significant technical accomplishments. Liquid hydrogen, a light and extremely powerful rocket propellant, has the lowest molecular weight of any known substance and burns with extreme intensity (5,500 degrees fahrenheit). In combination with an oxidizer such as liquid oxygen, liquid hydrogen yields the highest specific impulse, or efficiency in relation to the amount of propellant consumed, of any known rocket propellant. However, because liquid oxygen and liquid hydrogen are both cryogenic -- gases that can be liquefied only at extremely low temperatures -- they pose enormous technical challenges.";
+}
+function aboutengine() {
+	$("#content").empty();
+	$("#content2").empty();
+	$("#content3").empty();
+	document.getElementById("enginetitle").innerHTML = "What is the Chemical Engine Type?";
+	document.getElementById("aboutchemengine").innerHTML = "Propellant is the chemical mixture burned to produce thrust in rockets and consists of a fuel and an oxidizer. A fuel is a substance that burns when combined with oxygen producing gas for propulsion. An oxidizer is an agent that releases oxygen for combination with a fuel. The ratio of oxidizer to fuel is called the mixture ratio. Propellants are classified according to their state - liquid, solid, or hybrid. The gauge for rating the efficiency of rocket propellants is specific impulse, stated in seconds. Specific impulse indicates how many pounds (or kilograms) of thrust are obtained by the consumption of one pound (or kilogram) of propellant in one second. Specific impulse is characteristic of the type of propellant, however, its exact value will vary to some extent with the operating conditions and design of the rocket engine.";
+	document.getElementById("solidproptitle").innerHTML = "Solid Propellant Type";
+	document.getElementById("aboutsolidprop").innerHTML = "Solid propellant motors are the simplest of all rocket designs. They consist of a casing, usually steel, filled with a mixture of solid compounds (fuel and oxidizer) that burn at a rapid rate, expelling hot gases from a nozzle to produce thrust. When ignited, a solid propellant burns from the center out towards the sides of the casing. The shape of the center channel determines the rate and pattern of the burn, thus providing a means to control thrust. Unlike liquid propellant engines, solid propellant motors cannot be shut down. Once ignited, they will burn until all the propellant is exhausted. Solid propellant motors have a variety of uses. Small solids often power the final stage of a launch vehicle, or attach to payloads to boost them to higher orbits. Medium solids such as the Payload Assist Module (PAM) and the Inertial Upper Stage (IUS) provide the added boost to place satellites into geosynchronous orbit or on planetary trajectories.";
+	document.getElementById("liqproptitle").innerHTML = "Liquid Propellant Type";
+	document.getElementById("aboutliqprop").innerHTML = "In a liquid propellant rocket, the fuel and oxidizer are stored in separate tanks, and are fed through a system of pipes, valves, and turbopumps to a combustion chamber where they are combined and burned to produce thrust. Liquid propellant engines are more complex than their solid propellant counterparts, however, they offer several advantages. By controlling the flow of propellant to the combustion chamber, the engine can be throttled, stopped, or restarted. Liquid propellants used in rocketry can be classified into three types: petroleum, cryogens, and hypergols.";
+	document.getElementById("hybproptitle").innerHTML = "Hybrid Propellant Type";
+	document.getElementById("abouthybprop").innerHTML = "Hybrid propellant engines represent an intermediate group between solid and liquid propellant engines. One of the substances is solid, usually the fuel, while the other, usually the oxidizer, is liquid. The liquid is injected into the solid, whose fuel reservoir also serves as the combustion chamber. The main advantage of such engines is that they have high performance, similar to that of solid propellants, but the combustion can be moderated, stopped, or even restarted. It is difficult to make use of this concept for vary large thrusts, and thus, hybrid propellant engines are rarely built. A hybrid engine burning nitrous oxide as the liquid oxidizer and HTPB rubber as the solid fuel powered the vehicle SpaceShipOne, which won the Ansari X-Prize.";
+}
+function aboutdesign() {
+	$("#content").empty();
+	$("#content2").empty();
+	$("#content3").empty();
+	document.getElementById("designtitle").innerHTML = "What is Design Type?";
+	document.getElementById("aboutdesign").innerHTML = "In this simulation, the design of the rocket will only change the mass of the rocket. If the rocket weighs less, then the rocket will fly faster. If the rocket has more mass, it will not fly as fast.";
+	document.getElementById("apotitle").innerHTML = "Apollo (10 million Newtons)";
+	document.getElementById("aboutapo").innerHTML = "The Apollo program was designed to land humans on the Moon and bring them safely back to Earth. Six of the missions (Apollos 11, 12, 14, 15, 16, and 17) achieved this goal. Apollos 7 and 9 were Earth orbiting missions to test the Command and Lunar Modules, and did not return lunar data. Since these rockets were smaller and more compact, they did not weigh as much as many rockets do now. For this simulation, the weight of the 'Apollo' option is 10 million Newtons.";
+	document.getElementById("orititle").innerHTML = "Orion (20 million Newtons)";
+	document.getElementById("aboutori").innerHTML = "Unlike the Apollo program, Orion is just one rocket. NASA's Orion spacecraft is built to take humans farther than they've ever gone before. Orion will serve as the exploration vehicle that will carry the crew to space, provide emergency abort capability, sustain the crew during the space travel, and provide safe re-entry from deep space return velocities. Orion will launch on NASA's new heavy-lift rocket, the Space Launch System. For this simulation, the weight of the 'Orion' option is 20 million Newtons.";
+	document.getElementById("faltitle").innerHTML = "Falcon (30 million Newtons)";
+	document.getElementById("aboutfal").innerHTML = "The Falcon rockets developed by SpaceX have launched dozens of rockets in both their 'Falcon 9' and 'Falcon Heavy' series. According to Elon Musk (CEO of SpaceX), almost every piece of the Falcon should be reused over 100 times. For this simulation, the weight of the 'Falcon' option is 30 million Newtons, since they are some of the strongest and heaviest rockets out there.";
+}
+function aboutother() {
+	$("#content").empty();
+	$("#content2").empty();
+	$("#content3").empty();
+	document.getElementById("tttitle").innerHTML = "What is Thrust Time?";
+	document.getElementById("abouttt").innerHTML = "A rocket's thrust time is the amount of time, in seconds, the rocket takes to start accelerating upwards. This value has been scaled down for the actual thrust time of the animation. For example, selecting the '120' option would mean waiting exactly 2 minutes (120 seconds) for the rocket to launch. However, the simulation's thrust time for this option would only last 4 seconds.";
+	document.getElementById("thrusttitle").innerHTML = "What is Thrust Force?";
+	document.getElementById("aboutthrust").innerHTML = "Thrust is the force which moves the rocket through the air, and through space. Thrust is generated by the propulsion system of the rocket through the application of Newton's third law of motion; For every action there is an equal and opposite re-action. In the propulsion system, an engine does work on a gas or liquid, called a working fluid, and accelerates the working fluid through the propulsion system. The re-action to the acceleration of the working fluid produces the thrust force on the engine. The working fluid is expelled from the engine in one direction and the thrust force is applied to the engine in the opposite direction. For this simulation, the thrust force is a relatively larger value which the user can choose from: between 50 and 75 million Newtons.";
+	document.getElementById("dragtitle").innerHTML = "What is Drag Force?";
+	document.getElementById("aboutdrag").innerHTML = "Drag is the force directly opposite from the thrust force. Drag depends on the density of the air, the square of the velocity, the air's viscosity and compressibility, the size and shape of the body, and the body's inclination to the flow. In general, the dependence on body shape, inclination, air viscosity, and compressibility is very complex. For this reason, the drag force has been simplified to the user's choice of a value between 5 and 15 million Newtons.";
+	//Links used to create definitions:
+	//Drag: https://www.grc.nasa.gov/WWW/K-12/rocket/drageq.html#:~:text=The%20drag%20equation%20states%20that,times%20the%20reference%20area%20A.&text=The%20drag%20depends%20directly%20on%20the%20size%20of%20the%20body.
+	//Thrust: https://www.grc.nasa.gov/WWW/K-12/rocket/rktth1.html#:~:text=Thrust%20is%20the%20force%20which,the%20air%2C%20and%20through%20space.&text=The%20re%2Daction%20to%20the,engine%20in%20the%20opposite%20direction.
+	//Liquid Hydrogen: https://www.nasa.gov/topics/technology/hydrogen/hydrogen_fuel_of_choice.html
+	//Hydrazine: https://edu.rsc.org/magnificent-molecules/hydrazine/2000023.article
+	//Alcohol: https://www.funkidslive.com/learn/deep-space-high/marvellous-missions/rocket-fuels/
+	//Propellants: http://www.braeunig.us/space/propel.htm
 }
