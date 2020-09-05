@@ -1,6 +1,14 @@
-div {
+.smallspace {
+	margin: 10px;
+	padding: 10px;
+}
+.bigspace {
 	margin: 20px;
 	padding: 20px;
+}
+.marginspace {
+	margin: 40px;
+	padding: 40px;
 }
 body {
 	background: purple;

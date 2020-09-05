@@ -12,199 +12,204 @@
     	<script src="script.js"></script>
     	<script src="dist/jquery.keyframes.min.js"></script>
 	</head>
-	<body style="text-align:center;">
-		<div id = "content4" class="topnav">
-			<a class="active" href="#home">Choose Your Data</a>
-			<a href="#fuel" onclick="aboutfuel()">Fuel</a>
-			<a href="#engine" onclick="aboutengine()">Engine</a>
-			<a href="#design" onclick="aboutdesign()">Design</a>
-			<a href="#other" onclick="aboutother()">Other factors</a>
+
+	<body style = "text-align: center">
+		<div style="text-align:center;">
+			<div id = "content4" class="topnav">
+				<a class="active" href="#home" onclick="home()">Choose Your Data</a>
+				<a href="#fuel" onclick="aboutfuel()">Fuel</a>
+				<a href="#engine" onclick="aboutengine()">Engine</a>
+				<a href="#design" onclick="aboutdesign()">Design</a>
+				<a href="#other" onclick="aboutother()">Other factors</a>
+			</div>
 		</div>
-		<h1 id = "content2" style="color: Tomato"; style="font-size: 80px">Rocket Simulation</h1>
-		<h4 id = "content3">Choose one option from each category to build the fastest rocket possible!</h4>
+
+		<div id = "bodysection" class = "bigspace">
+			<div style="text-align:center;">
+				<h1 id = "content2" style="color: Tomato"; style="font-size: 80px">Rocket Simulation</h1>
+				<h4 id = "content3">Choose one option from each category to build the fastest rocket possible!</h4>
+			</div>
+			<div id = "content" class = "bigspace" style="text-align:center;">
+				<div style="display: inline-block;" class = "marginspace">
+				<form id="random">
+					<p style="font-size:22px">Fuel Type</p>
+				    <p>
+				      <label>
+				        <input name="group1" type="radio" id="ker" />
+				        <span>Kerosine</span>
+				      </label>
+				    </p>
+				    <p>
+				      <label>
+				        <input name="group1" type="radio" id="alc" />
+				        <span>Alcohol</span>
+				      </label>
+				    </p>
+				    <p>
+				      <label>
+				        <input class="with-gap" name="group1" type="radio" id="hyd" />
+				        <span>Hydrazine</span>
+				      </label>
+				    </p>
+				    <p>
+				      <label>
+				        <input class="with-gap" name="group1" type="radio" id="lhy" />
+				        <span>Liquid Hydrogen</span>
+				      </label>
+				    </p>
+		  		</form>
+		  	</div>
+		  	
+		  	<div style="display: inline-block;" style="text-align:center;">
+		  		<form id="random2">
+					<p style="font-size:22px">Chemical Engine Type</p>
+				    <p>
+				      <label>
+				        <input name="group2" type="radio" id="sol"/>
+				        <span>Solid Propellant</span>
+				      </label>
+				    </p>
+				    <p>
+				      <label>
+				        <input name="group2" type="radio" id="liq" />
+				        <span>Liquid Propellant</span>
+				      </label>
+				    </p>
+				    <p>
+				      <label>
+				        <input class="with-gap" name="group2" type="radio" id="hyp" />
+				        <span>Hybrid Propellant</span>
+				      </label>
+				    </p>
+		  		</form>
+		  	</div>
+
+		  	<div style="display: inline-block;" style="text-align:center;">
+		  		<form id="random3">
+					<p style="font-size:22px">Rocket Type</p>
+				<!-- <i class="fas fa-rocket"></i> -->
+				    <p>
+				      <label>
+				        <input name="group3" type="radio" id="apo"/>
+				        <span>Apollo</span>
+				      </label>
+				    </p>
+				    <p>
+				      <label>
+				        <input name="group3" type="radio" id="ori" />
+				        <span>Orion</span>
+				      </label>
+				    </p>
+				    <p>
+				      <label>
+				        <input class="with-gap" name="group3" type="radio" id="fal" />
+				        <span>Falcon</span>
+				      </label>
+				    </p>
+		  		</form>
+		  	</div>
+
+			<div style="display: inline-block;" style="text-align:center;">
+			  	<form id="random4">
+					<p style="font-size:22px">Thrust Time (in seconds)</p>
+				    <p>
+				      <label>
+				        <input name="group4" type="radio" id="60"/>
+				        <span>60</span>
+				      </label>
+				    </p>
+				    <p>
+				      <label>
+				        <input name="group4" type="radio" id="90" />
+				        <span>90</span>
+				      </label>
+				    </p>
+				    <p>
+				      <label>
+				        <input class="with-gap" name="group4" type="radio" id="120" />
+				        <span>120</span>
+				      </label>
+				    </p>
+				    <p>
+				      <label>
+				        <input class="with-gap" name="group4" type="radio" id="150" />
+				        <span>150</span>
+				      </label>
+				    </p>
+		  		</form>
+		  	</div>
+
+			  	<form>
+			  		<p style="font-size:22px" style="text-align:center;">Thrust Force (in millions of Newtons)</p>
+				      <input type="range" name="rangeInput" min="50" max="75" onchange="updateTextInput(this.value);">
+					  <input type="text" id="textInput" value="">
+					  	    <script type="text/javascript">
+		        				function updateTextInput(val) {
+		          				document.getElementById('textInput').value=val;
+		        				}
+		   					</script>
+			  	</form>
+
+			  	<form>
+			  		<p style="font-size:22px" style="text-align:center;">Drag Force (in millions of Newtons)</p>
+				      <input type="range" name="rangeInput" min="5" max="15" onchange="updateTextInput2(this.value);">
+					  <input type="text" id="textInput2" value="">
+					  	    <script type="text/javascript">
+		        				function updateTextInput2(val) {
+		          				document.getElementById('textInput2').value=val;
+		        				}
+		   					</script>
+			  	</form>
+			  	<button type="button" class="btn btn-primary" onclick="startrocket()">Launch!</button>
+		  	</div>
+		</div>
+
+		<div id = "fuelsection">
+				<h1 id = "fueltitle"></h1>
+				<p id = "aboutft"></p>
+				<h3 id = "kerosinetitle"></h3>
+				<p id = "aboutkerosine"></p>
+				<h3 id = "alctitle"></h3>
+				<p id = "aboutalc"></p>
+				<h3 id = "hydrazinetitle"></h3>
+				<p id = "abouthydrazinetitle"></p>
+				<h3 id = "liqhydtitle"></h3>
+				<p id = "aboutliqhydtitle"></p>
+		</div>
+
+			<div id = "enginesection">
+				<h1 id = "enginetitle"></h1>
+				<p id = "aboutchemengine"></p>
+				<h3 id = "solidproptitle"></h3>
+				<p id = "aboutsolidprop"></p>
+				<h3 id = "liqproptitle"></h3>
+				<p id = "aboutliqprop"></p>
+				<h3 id = "hybproptitle"></h3>
+				<p id = "abouthybprop"></p>
+			</div>
+
+		<div id = "designsection">
+			<h1 id = "designtitle"></h1>
+			<p id = "aboutdesign"></p>
+			<h3 id = "apotitle"></h3>
+			<p id = "aboutapo"></p>
+			<h3 id = "orititle"></h3>
+			<p id = "aboutori"></p>
+			<h3 id = "faltitle"></h3>
+			<p id = "aboutfal"></p>
+		</div>
+
+		<div id = "othersection">
+			<h1 id = "tttitle"></h1>
+			<p id = "abouttt"></p>
+			<h1 id = "thrusttitle"></h1>
+			<p id = "aboutthrust"></p>
+			<h1 id = "dragtitle"></h1>
+			<p id = "aboutdrag"></p>
+		</div>
+
+		<div id = "content5">
+			<p>Designed by Aayod Kaul.</p>
+		</div>
 	</body>
-
-	<body>
-		<h1 id = "fueltitle"></h1>
-		<p id = "aboutft"></p>
-		<h3 id = "kerosinetitle"></h3>
-		<p id = "aboutkerosine"></p>
-		<h3 id = "alctitle"></h3>
-		<p id = "aboutalc"></p>
-		<h3 id = "hydrazinetitle"></h3>
-		<p id = "abouthydrazinetitle"></p>
-		<h3 id = "liqhydtitle"></h3>
-		<p id = "aboutliqhydtitle"></p>
-	</body>
-
-	<body>
-		<h1 id = "enginetitle"></h1>
-		<p id = "aboutchemengine"></p>
-		<h3 id = "solidproptitle"></h3>
-		<p id = "aboutsolidprop"></p>
-		<h3 id = "liqproptitle"></h3>
-		<p id = "aboutliqprop"></p>
-		<h3 id = "hybproptitle"></h3>
-		<p id = "abouthybprop"></p>
-	</body>
-
-	<body>
-		<h1 id = "designtitle"></h1>
-		<p id = "aboutdesign"></p>
-		<h3 id = "apotitle"></h3>
-		<p id = "aboutapo"></p>
-		<h3 id = "orititle"></h3>
-		<p id = "aboutori"></p>
-		<h3 id = "faltitle"></h3>
-		<p id = "aboutfal"></p>
-	</body>
-
-	<body>
-		<h1 id = "tttitle"></h1>
-		<p id = "abouttt"></p>
-		<h1 id = "thrusttitle"></h1>
-		<p id = "aboutthrust"></p>
-		<h1 id = "dragtitle"></h1>
-		<p id = "aboutdrag"></p>
-	</body>
-
-	<body>
-		<div id = "content">
-			<div style="display: inline-block;">
-			<form id="random">
-				<p style="font-size:22px">Fuel Type</p>
-			    <p>
-			      <label>
-			        <input name="group1" type="radio" id="ker" />
-			        <span>Kerosine</span>
-			      </label>
-			    </p>
-			    <p>
-			      <label>
-			        <input name="group1" type="radio" id="alc" />
-			        <span>Alcohol</span>
-			      </label>
-			    </p>
-			    <p>
-			      <label>
-			        <input class="with-gap" name="group1" type="radio" id="hyd" />
-			        <span>Hydrazine</span>
-			      </label>
-			    </p>
-			    <p>
-			      <label>
-			        <input class="with-gap" name="group1" type="radio" id="lhy" />
-			        <span>Liquid Hydrogen</span>
-			      </label>
-			    </p>
-	  		</form>
-	  	</div>
-	  	<div style="display: inline-block;">
-	  		<form id="random2">
-				<p style="font-size:22px">Chemical Engine Type</p>
-			    <p>
-			      <label>
-			        <input name="group2" type="radio" id="sol"/>
-			        <span>Solid Propellant</span>
-			      </label>
-			    </p>
-			    <p>
-			      <label>
-			        <input name="group2" type="radio" id="liq" />
-			        <span>Liquid Propellant</span>
-			      </label>
-			    </p>
-			    <p>
-			      <label>
-			        <input class="with-gap" name="group2" type="radio" id="hyp" />
-			        <span>Hybrid Propellant</span>
-			      </label>
-			    </p>
-	  		</form>
-	  	</div>
-
-	  	<div style="display: inline-block;">
-	  		<form id="random3">
-				<p style="font-size:22px">Rocket Type</p>
-			<!-- <i class="fas fa-rocket"></i> -->
-			    <p>
-			      <label>
-			        <input name="group3" type="radio" id="apo"/>
-			        <span>Apollo</span>
-			      </label>
-			    </p>
-			    <p>
-			      <label>
-			        <input name="group3" type="radio" id="ori" />
-			        <span>Orion</span>
-			      </label>
-			    </p>
-			    <p>
-			      <label>
-			        <input class="with-gap" name="group3" type="radio" id="fal" />
-			        <span>Falcon</span>
-			      </label>
-			    </p>
-	  		</form>
-	  	</div>
-
-		<div style="display: inline-block;">
-		  	<form id="random4">
-				<p style="font-size:22px">Thrust Time (in seconds)</p>
-			    <p>
-			      <label>
-			        <input name="group4" type="radio" id="60"/>
-			        <span>60</span>
-			      </label>
-			    </p>
-			    <p>
-			      <label>
-			        <input name="group4" type="radio" id="90" />
-			        <span>90</span>
-			      </label>
-			    </p>
-			    <p>
-			      <label>
-			        <input class="with-gap" name="group4" type="radio" id="120" />
-			        <span>120</span>
-			      </label>
-			    </p>
-			    <p>
-			      <label>
-			        <input class="with-gap" name="group4" type="radio" id="150" />
-			        <span>150</span>
-			      </label>
-			    </p>
-	  		</form>
-	  	</div>
-
-		  	<form>
-		  		<p style="font-size:22px">Thrust Force (in millions of Newtons)</p>
-			      <input type="range" name="rangeInput" min="50" max="75" onchange="updateTextInput(this.value);">
-				  <input type="text" id="textInput" value="">
-				  	    <script type="text/javascript">
-	        				function updateTextInput(val) {
-	          				document.getElementById('textInput').value=val;
-	        				}
-	   					</script>
-		  	</form>
-
-		  	<form>
-		  		<p style="font-size:22px">Drag Force (in millions of Newtons)</p>
-			      <input type="range" name="rangeInput" min="5" max="15" onchange="updateTextInput2(this.value);">
-				  <input type="text" id="textInput2" value="">
-				  	    <script type="text/javascript">
-	        				function updateTextInput2(val) {
-	          				document.getElementById('textInput2').value=val;
-	        				}
-	   					</script>
-		  	</form>
-		  	<button type="button" class="btn btn-primary" onclick="startrocket()">Launch!</button>
-	  	</div>
-	</body>
-
-	<body id = "content5">
-		<p>Designed by Aayod Kaul.</p>
-	</body>
-
 </html>
