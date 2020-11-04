@@ -1,3 +1,28 @@
+body {
+ background-image: url("Grass.jpg");
+ background-color: #cccccc;
+ background-position: center;
+ background-size: cover;
+}
+/*.hero-image {
+  background-image: url("Grass.jpg");
+  background-color: #cccccc;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+*/
 .smallspace {
 	margin: 10px;
 	padding: 10px;
@@ -10,7 +35,7 @@
 	margin: 40px;
 	padding: 40px;
 }
-body {
+.body {
 	background: purple;
 }
 
@@ -55,9 +80,9 @@ body {
 }
 .my-legend .legend-title {
     text-align: left;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
     font-weight: bold;
-    font-size: 150%;
+    font-size: 300%;
 }
 .my-legend .legend-scale ul {
     margin: 0;
@@ -67,18 +92,18 @@ body {
     list-style: none;
 }
 .my-legend .legend-scale ul li {
-    font-size: 80%;
+    font-size: 160%;
     list-style: none;
     margin-left: 0;
     line-height: 18px;
-    margin-bottom: 2px;
+    margin-bottom: 25px;
 }
 .my-legend ul.legend-labels li span {
     display: block;
     float: left;
-    height: 16px;
-    width: 30px;
-    margin-right: 5px;
+    height: 60px;
+    width: 600px;
+    margin-right: 25px;
     margin-left: 0;
     border: 1px solid #999;
 }
